@@ -8,15 +8,35 @@
     <script src="cdnVue.js"></script>
 </head>
 <body>
-    <div id="app">
-        <!-- {{nombre}}
-        {{edad}} -->
+    <!-- <div id="app">
+        {{nombre}}
+        {{edad}}
         {{contador}}
 
         <button v-on:click="incrementar()">incrementar</button>
         <button v-on:click="decrementar()">decrementar</button>
     </div>
-    <!-- Script Vue va despues -->
-    <script src="vue.js"></script>
+    <--Script Vue va despues ->
+    <script src="vue.js"></script> -->
+
+    <!-- <div id="app">
+        <h1 v-if="activo==true">Buenas papus</h1>
+        <h1 v-else>Adios papus</h1>
+        <button @click="mostrar()">True</button>
+        <button @click="ocultar()">False</button>
+    </div>
+
+    <script src="if-else.js"></script> -->
+
+    <div id="app">
+        <img v-if="edad >= 18 && edad <= 100"src="../images/aproveknuckles.png">
+        <img v-else-if="edad > 100"src="../images/idkknuckles.png">
+        <img v-else-if="edad <= 0"src="../images/seriusknuckles.png">
+        <img v-else src="../images/noknuckles.png">
+
+        <buttton @click="capturarEdad()">Ingresar edad</buttton>
+    </div>
+
+    <script src="if-elseEdad.js"></script>
 </body>
 </html>
