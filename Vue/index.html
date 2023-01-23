@@ -28,7 +28,7 @@
 
     <script src="if-else.js"></script> -->
 
-    <div id="app">
+   <!--  <div id="app">
         <img v-if="edad >= 18 && edad <= 100"src="../images/aproveknuckles.png">
         <img v-else-if="edad > 100"src="../images/idkknuckles.png">
         <img v-else-if="edad <= 0"src="../images/seriusknuckles.png">
@@ -37,6 +37,30 @@
         <buttton @click="capturarEdad()">Ingresar edad</buttton>
     </div>
 
-    <script src="if-elseEdad.js"></script>
+    <script src="if-elseEdad.js"></script> -->
+
+    <!-- <div id="app">
+        <h1>Mi nombre es: {{nombre}}</h1>
+        <input v-model="nombre" type="text">
+        <h1>Mi carrera es: {{carrera}}</h1>
+        <select v-model="carrera">
+            <option>Ingenieria</option>
+            <option>Licenciatura</option>
+            <option>Maestria</option>
+            <option>Doctorado</option>
+        </select>
+    </div> -->
+
+    <div id="app">
+        <h1>Captura tu edad</h1>
+        <input v-model.number="edad" type="number">
+        <button @click="capturarEdad()">Calcular</button>
+
+        <img v-if="edad >= 18" src="../images/aproveknuckles.png">
+        <img v-else-if="edad < 18 && edad > 0" src="../images/noknuckles.png">
+        <img v-else="edad <= 0" src="../images/seriusknuckles.png">
+    </div>
+
+    <script src="model.js"></script>
 </body>
 </html>
