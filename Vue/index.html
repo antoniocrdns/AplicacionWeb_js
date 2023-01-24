@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="cdnVue.js"></script>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          font-family: Arial;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+          font-family: Arial;
+        }
+        
+        tr:hover {background-color: #D6EEEE;}
+    </style>
 </head>
 <body>
     <!-- <div id="app">
@@ -51,7 +67,7 @@
         </select>
     </div> -->
 
-    <div id="app">
+    <!-- <div id="app">
         <h1>Captura tu edad</h1>
         <input v-model.number="edad" type="number">
         <button @click="capturarEdad()">Calcular</button>
@@ -61,6 +77,32 @@
         <img v-else="edad <= 0" src="../images/seriusknuckles.png">
     </div>
 
-    <script src="model.js"></script>
+    <script src="model.js"></script> -->
+
+    <div id="app">
+        <h1>Mis compras</h1>
+        <input v-model="producto" placeholder="Nombre del producto" type="text">
+        <button @click="agregar()">Agregar</button>
+        <button @click="carrito=[]">Quitar productos</button>
+
+        <ul>
+            <li v-for="producto in carrito">
+                {{producto}}
+            </li>
+        </ul>
+        
+        <table>
+            <thead>
+                <th>Productos</th>
+            </thead>
+            <tbody>
+                <tr v-for="producto in carrito">
+                    <td>{{producto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="carrito.js"></script>
 </body>
 </html>
