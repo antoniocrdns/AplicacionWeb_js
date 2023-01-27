@@ -1,17 +1,15 @@
 Vue.createApp({
-    data(){
-        return{
-            productos: [
-                {
-                    producto: '',
-                    precio: '',
-                    cantidad: ''
-                }
-            ]
+    data() {
+        return {
+            productos: [],
+            producto: '',
+            precio: '',
+            cantidad: '',
+            colorTable: ''
         }
     },
     methods: {
-        agregar(){
+        agregar() {
             const producto = {
                 producto: this.producto,
                 precio: this.precio,
