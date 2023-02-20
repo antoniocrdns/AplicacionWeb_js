@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="../cdnVue.js"></script>
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="container mt-3" id="app">
-        <button @click="getPokemon()"class="btn btn-primary">Obtener</button>
+        <h1>POKEDEX</h1>
 
-        <div v-if="pokemon != null"class="card" style="width: 18rem;">
-            <img class="width: 200;":src="pokemon.sprites.other.home.front_default" class="card-img-top" alt="no image">
-            <div class="card-body">
-                <h5 class="card-tittle">{{pokemon.name}}</h5>
-                <p class="card-text">Tipos</p>
-                <p class="card-text">{{pokemon.types}}</p>
+        <button @click="getPokemon()" class="btn btn-primary">Obtener Pokémon</button>
+
+        <div v-if="pokemons.length > 0">
+            <div class="d-flex flex-wrap">
+                <div v-for="pokemon in pokemons" class="card m-3" style="width: 18rem;">
+                    <img class="width: 200;" :src="pokemon.sprites.other.home.front_default" class="card-img-top "
+                        alt="no image">
+                    <div class="card-body">
+                        <h1 class="card-tittle">{{pokemon.name}}</h1>
+                        <h5 class="card-text">Tipos</h5>
+                        <small class="badge bg-secondary mx-1"
+                            v-for="tipos in pokemon.types">{{tipos.type.name}}</small>
+                        <h5 class="card-text">Habilidades</h5>
+                        <small class="badge bg-secondary mx-1"
+                            v-for="habilidad in pokemon.abilities">{{habilidad.ability.name}}</small>
+                        <h5 class="card-text">Altura y Peso</h5>
+                        <small class="badge bg-secondary mx-3">{{pokemon.height}}</small> <small
+                            class="badge bg-secondary mx-3">{{pokemon.weight}}</small>
+                        <h5 class="card-text">Stats</h5>
+                        <small class="badge bg-secondary mx-1"
+                            v-for="estadistica in pokemon.stats">{{estadistica.stat.name}}:
+                            {{estadistica.base_stat}}</small>
+                        <h5 class="card-text mt-2">Juegos en los que aparece</5>
+                            <small class="badge bg-secondary mx-1"
+                                v-for="juegos in pokemon.game_indices">{{juegos.version.name}}</small>
+                    </div>
+                </div>
             </div>
+
         </div>
+
     </div>
 
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+        </script>
+
 </body>
+
 </html>
